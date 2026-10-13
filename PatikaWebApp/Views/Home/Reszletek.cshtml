@@ -1,0 +1,19 @@
+@model PatikaWebApp.Models.Gyogyszer
+
+@{
+    ViewData["Title"] = "Gyógyszer részletei";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center my-5">
+    <h2 class="mb-4">@Model.Nev</h2>
+
+    @if (!string.IsNullOrEmpty(Model.kepnev))
+    {
+        <img src="~/imgs/@Model.kepnev" alt="@Model.Nev" style="height: 200px; width: auto;" class="img-fluid shadow-sm rounded" />
+    }
+    else
+    {
+        <p class="text-muted">Ehhez a gyógyszerhez nem érhető el kép.</p>
+    }
+</div>
