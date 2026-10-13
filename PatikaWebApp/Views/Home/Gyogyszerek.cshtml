@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PatikaWebApp.Models.Gyogyszer>
+
+@{
+    ViewData["Title"] = "Gyógyszerek aloldal";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Gyógyszerek adatai</h2>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>Név</th>
+            <th>Hatóanyag</th>
+            <th>Vényköteles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gyogyszer in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Gyogyszer" asp-action="Reszletek" asp-route-id="@gyogyszer.Id">@gyogyszer.Nev</a>
+                </td>
+
+                <td>@gyogyszer.Hatoanyag</td>
+
+                <td>
+                    <input type="checkbox" checked="@gyogyszer.Venykoteles" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
